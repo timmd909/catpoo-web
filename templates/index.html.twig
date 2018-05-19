@@ -4,7 +4,8 @@
 Hello world!
 {% endblock %}
 
-{% block pageScripts %}
+{% block scripts %}
+{{ parent() }}
 <script>
 require([
   'catpoo',

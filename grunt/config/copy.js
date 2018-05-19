@@ -1,20 +1,28 @@
 'use strict';
 
 module.exports = {
+	'boostrap': {
+		files: [{
+			'public/js/bootstrap.js': 'node_modules/bootstrap/dist/js/bootstrap.min.js',
+			'public/js/bootstrap.debug.js': 'node_modules/bootstrap/dist/js/bootstrap.js',
+		}],
+	},
 	'jquery': {
-		files: [
-			{
-				'public/js/jquery.js': 'node_modules/jquery/dist/jquery.min.js',
-				'public/js/jquery.debug.js': 'node_modules/jquery/dist/jquery.js',
-			}
-		],
+		files: [{
+			'public/js/jquery.js': 'node_modules/jquery/dist/jquery.min.js',
+			'public/js/jquery.debug.js': 'node_modules/jquery/dist/jquery.js',
+		}],
+	},
+	'popper': {
+		files: [{
+			'public/js/popper.js': 'node_modules/popper.js/dist/umd/popper.min.js',
+			'public/js/popper.debug.js': 'node_modules/popper.js/dist/umd/popper.js',
+		}],
 	},
 	'requirejs': {
-		files: [
-			{
-				'public/js/require.js': 'node_modules/requirejs/require.js',
-			}
-		]
+		files: [{
+			'public/js/require.js': 'node_modules/requirejs/require.js',
+		}],
 	},
 	'scripts': {
 		files:[{

@@ -2,7 +2,9 @@
 
 define([
 	'jquery',
+	'popper',
+	'bootstrap',
 ],
 function ($) {
-	console.log('CATPOO UI loaded');
+	console.log('CATPOO common scripts loaded');
 });

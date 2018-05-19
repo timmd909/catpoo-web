@@ -13,23 +13,31 @@
     {% endblock body %}
 
     {% block scripts %}
-      {% block commonScripts %}
-        <script src="{{ asset('js/require.js') }}"></script>
-        <script>
-          requirejs.config({
-            baseUrl: 'js/',
-            shim: {
-              'jquery': {
-                exports: 'jQuery',
-              }
-            },
-          });
-        </script>
-      {% endblock %}
+      <script src="{{ asset('js/require.js') }}"></script>
+      <script>
+        requirejs.config({
 
-      {% block pageScripts %}
-        <!-- no page specific scripts -->
-      {% endblock %}
+          baseUrl: 'js/',
+
+          shim: {
+            'jquery': {
+              exports: 'jQuery',
+            },
+            'bootstrap': {
+              deps: ['popper', 'jquery']
+            },
+            'popper': {
+              deps: ['jquery'],
+            },
+          },
+
+          map: {
+            '*': {
+              'popper.js': 'popper',
+            }
+          },
+        });
+      </script>
     {% endblock %}
   </body>
 </html>

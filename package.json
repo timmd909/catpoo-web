@@ -4,8 +4,13 @@
   "author": "Tim Doerzbacher <tim@tim-doerzbacher.com>",
   "private": true,
   "dependencies": {
+    "autoprefixer": "^8.5.0",
     "bootstrap": "^4.1.1",
+    "colors": "^1.2.5",
+    "grunt": "^1.0.2",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "load-grunt-config": "^0.19.2",
+    "popper.js": "^1.14.3",
+    "time-grunt": "^1.4.0"
   }
 }

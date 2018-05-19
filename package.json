@@ -18,5 +18,8 @@
     "requirejs": "^2.3.5",
     "text": "github:requirejs/text",
     "time-grunt": "^1.4.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "^1.1.0"
   }
 }

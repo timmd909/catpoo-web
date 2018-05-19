@@ -3,17 +3,20 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class CommandController
+class CommandController extends Controller
 {
   public function list()
   {
-    return new Response('Available commands will be displayed here eventually');
+    return $this->render('commands.html.twig');
   }
 
-  public function command($command)
+  public function uptime()
   {
-    return new Response('Executing command: ' . $command);
+    exec('uptime -p', $output, $result);
+    $output = implode("\n", $output);
+    $output = substr($output, 2);
+    return new Response($output);
   }
-
 }

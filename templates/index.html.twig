@@ -1,7 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-Hello world!
+<div class="video-screen" style="background-image: url(stream.mjpeg)">
+  <header class="navbar navbar-expand-lg navbar-dark bg-semi-dark sticky-top">
+    <a class="navbar-brand" href="{{ path('index') }}">CATPOO</a>
+
+    <button class="navbar-toggler" type="button"
+      data-toggle="collapse" data-target="#navbar-collapsible-section"
+      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-collapsible-section">
+      <div class="flex-grow-1"></div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('index') }}">Refresh</a>
+        </li>
+      </ul>
+    </div>
+
+  </header>
+
+</div><!-- .video-screen -->
 {% endblock %}
 
 {% block scripts %}

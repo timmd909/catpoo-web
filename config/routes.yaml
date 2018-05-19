@@ -7,6 +7,6 @@ command_list:
   path: /command
   controller: App\Controller\CommandController::list
 
-command:
-  path: /command/{command}
-  controller: App\Controller\CommandController::command
+command_uptime:
+  path: /command/uptime
+  controller: App\Controller\CommandController::uptime

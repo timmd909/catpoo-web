@@ -1,7 +1,6 @@
 {
     "name": "CATPOO",
     "description": "Cat Antagonizing Tactical Platform Of Oppression",
-    "version": "0.0.4",
     "type": "project",
     "license": "proprietary",
     "require": {
@@ -51,14 +50,11 @@
             "@auto-scripts"
         ]
     },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
     "extra": {
         "symfony": {
             "id": "",
             "allow-contrib": false
         },
-        "symfony.id": "01CDVDT3105MADTF2ABYN5GZVR"
+        "symfony.id": "01CDVEM0BZ0ZB1286QQ415B8W0"
     }
 }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1ed573abb5b0b8aa46ce832303c5d0f0",
-    "content-hash": "bf2c5c909b17cf2a6252c5c8360e0613",
+    "hash": "7d8c9ddc17a125d0a04a264f6b9652f2",
+    "content-hash": "859d09e8cc27f33c5424c363b50500a2",
     "packages": [
         {
             "name": "psr/cache",
@@ -196,6 +196,28 @@
                 "simple-cache"
             ],
             "time": "2017-10-23 01:57:42"
+        },
+        {
+            "name": "symfony/apache-pack",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/apache-pack.git",
+                "reference": "3aa5818d73ad2551281fc58a75afd9ca82622e6c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/apache-pack/zipball/3aa5818d73ad2551281fc58a75afd9ca82622e6c",
+                "reference": "3aa5818d73ad2551281fc58a75afd9ca82622e6c",
+                "shasum": ""
+            },
+            "type": "symfony-pack",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A pack for Apache support in Symfony",
+            "time": "2017-12-12 01:46:35"
         },
         {
             "name": "symfony/cache",

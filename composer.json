@@ -4,6 +4,7 @@
     "require": {
         "php": "^7.0.8",
         "ext-iconv": "*",
+        "symfony/apache-pack": "^1.0",
         "symfony/console": "^3.4",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^3.4",
@@ -55,6 +56,6 @@
             "id": "",
             "allow-contrib": false
         },
-        "symfony.id": "01CDVC3TQXW271P7FZMV3DRYDY"
+        "symfony.id": "01CDVDCK43P53ZYE0RJM96ZQZC"
     }
 }

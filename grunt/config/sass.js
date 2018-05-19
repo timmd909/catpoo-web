@@ -2,7 +2,9 @@
 
 module.exports = {
 	options: {
-
+		includePaths: [
+			'node_modules/bootstrap/scss',
+		],
 	},
 	dist: {
 		files: {

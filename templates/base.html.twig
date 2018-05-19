@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}CATPOO{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    {% block styles %}
+      <link rel="stylesheet" href="{{ asset('css/catpoo.css') }}">
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+    <!-- body -->
+    {% endblock body %}
+
+    {% block scripts %}
+      {% block commonScripts %}
+        <script src="{{ asset('js/require.js') }}"></script>
+        <script>
+          requirejs.config({
+            baseUrl: 'js/',
+            shim: {
+              'jquery': {
+                exports: 'jQuery',
+              }
+            },
+          });
+        </script>
+      {% endblock %}
+
+      {% block pageScripts %}
+        <!-- no page specific scripts -->
+      {% endblock %}
+    {% endblock %}
+  </body>
+</html>

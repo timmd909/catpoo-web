@@ -20,6 +20,9 @@
             "ref": "c82bead70f9a4f656354a193df7bf0ca2114efa0"
         }
     },
+    "symfony/asset": {
+        "version": "v3.4.9"
+    },
     "symfony/cache": {
         "version": "v3.4.8"
     },
@@ -101,6 +104,18 @@
             "ref": "a249484db698d1a847a30291c8f732414ac47e25"
         }
     },
+    "symfony/twig-bridge": {
+        "version": "v3.4.9"
+    },
+    "symfony/twig-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "f75ac166398e107796ca94cc57fa1edaa06ec47f"
+        }
+    },
     "symfony/web-server-bundle": {
         "version": "3.3",
         "recipe": {
@@ -112,5 +127,8 @@
     },
     "symfony/yaml": {
         "version": "v3.4.8"
+    },
+    "twig/twig": {
+        "version": "v2.4.8"
     }
 }

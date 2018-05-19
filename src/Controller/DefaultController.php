@@ -9,7 +9,7 @@ class DefaultController extends Controller
 {
   public function index()
   {
-    return new Response('Hello world');
+    return $this->render('index.html.twig');
   }
 
 }

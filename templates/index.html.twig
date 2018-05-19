@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+Hello world!
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+require([
+  'catpoo',
+],
+function () {
+  console.log('Application should now start');
+});
+</script>
+{% endblock %}

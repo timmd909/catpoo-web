@@ -1,0 +1,11 @@
+{
+  "name": "catpoo",
+  "version": "0.0.4",
+  "author": "Tim Doerzbacher <tim@tim-doerzbacher.com>",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
+  }
+}

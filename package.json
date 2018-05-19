@@ -8,6 +8,8 @@
     "bootstrap": "^4.1.1",
     "colors": "^1.2.5",
     "grunt": "^1.0.2",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-sass": "^2.1.0",
     "jquery": "^3.3.1",
     "load-grunt-config": "^0.19.2",
     "popper.js": "^1.14.3",

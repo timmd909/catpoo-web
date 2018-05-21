@@ -22,3 +22,7 @@ command_rotate:
 command_reset:
   path: /command/reset
   controller: App\Controller\CommandController::reset
+
+command_restart_motion:
+  path: /command/restart-motion
+  controller: App\Controller\CommandController::restartMotion

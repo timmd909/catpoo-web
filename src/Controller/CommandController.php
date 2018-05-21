@@ -40,4 +40,11 @@ class CommandController extends Controller
     exec('catpoo_controller reset', $output, $result);
     return new Response(implode("\n", $output));
   }
+
+  public function restartMotion()
+  {
+    error_log("restartMotion()");
+    exec('sudo service motion restart', $output, $result);
+    return new Response(implode("\n", $output));
+  }
 }

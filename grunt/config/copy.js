@@ -7,6 +7,11 @@ module.exports = {
 			'public/js/bootstrap.debug.js': 'node_modules/bootstrap/dist/js/bootstrap.js',
 		}],
 	},
+	'screenfull': {
+		files: [{
+			'public/js/screenfull.js': 'node_modules/screenfull/dist/screenfull.js',
+		}],
+	},
 	'font-awesome': {
 		files: [{
 			expand: true,

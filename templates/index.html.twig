@@ -44,31 +44,31 @@ require([
 function () {
   console.log('Application should now start');
 
-  $('.reset-btn').click(function () {
+  $('body').on('click', '.reset-btn', function () {
     $.get("{{ path('command_reset') }}");
   });
 
-  $('.move-left-btn').click(function () {
+  $('body').on('click', '.move-left-btn', function () {
     $.get("{{ path('command_translate', {'x': -100, 'y': 0}) }}");
   });
-  $('.move-right-btn').click(function () {
+  $('body').on('click', '.move-right-btn', function () {
     $.get("{{ path('command_translate', {'x': 100, 'y': 0}) }}");
   });
-  $('.move-forward-btn').click(function () {
+  $('body').on('click', '.move-forward-btn', function () {
     $.get("{{ path('command_translate', {'x': 0, 'y': 100}) }}");
   });
-  $('.move-backward-btn').click(function () {
+  $('body').on('click', '.move-backward-btn', function () {
     $.get("{{ path('command_translate', {'x': 0, 'y': -100}) }}");
   });
 
-  $('.turn-left-btn').click(function () {
+  $('body').on('click', '.turn-left-btn', function () {
     $.get("{{ path('command_rotate', {'d': 50}) }}");
   });
-  $('.turn-right-btn').click(function () {
+  $('body').on('click', '.turn-right-btn', function () {
     $.get("{{ path('command_rotate', {'d': -50}) }}");
   });
 
-  $('#restart-motion-service').click(function () {
+  $('body').on('click', '#restart-motion-service', function () {
     $.get("{{ path('command_restart_motion') }}");
   });
 

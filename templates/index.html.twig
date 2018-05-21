@@ -44,27 +44,27 @@ require([
 function () {
   console.log('Application should now start');
 
-  $('#reset-btn').click(function () {
+  $('.reset-btn').click(function () {
     $.get("{{ path('command_reset') }}");
   });
 
-  $('#move-left-btn').click(function () {
+  $('.move-left-btn').click(function () {
     $.get("{{ path('command_translate', {'x': -100, 'y': 0}) }}");
   });
-  $('#move-right-btn').click(function () {
+  $('.move-right-btn').click(function () {
     $.get("{{ path('command_translate', {'x': 100, 'y': 0}) }}");
   });
-  $('#move-forward-btn').click(function () {
+  $('.move-forward-btn').click(function () {
     $.get("{{ path('command_translate', {'x': 0, 'y': 100}) }}");
   });
-  $('#move-backward-btn').click(function () {
+  $('.move-backward-btn').click(function () {
     $.get("{{ path('command_translate', {'x': 0, 'y': -100}) }}");
   });
 
-  $('#turn-left-btn').click(function () {
+  $('.turn-left-btn').click(function () {
     $.get("{{ path('command_rotate', {'d': 50}) }}");
   });
-  $('#turn-right-btn').click(function () {
+  $('.turn-right-btn').click(function () {
     $.get("{{ path('command_rotate', {'d': -50}) }}");
   });
 

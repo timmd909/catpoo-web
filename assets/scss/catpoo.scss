@@ -2,6 +2,9 @@
  CATPOO styling
  */
 
+// $gutter: 8px;
+$grid-gutter-width: 8px;
+
 @import "3rd-party";
 
 @import "catpoo/video-screen";
@@ -21,7 +24,8 @@ body {
 }
 
 .bg-semi-dark {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
 }
 
-$grid-gutter-width: 15px;
+$gutter: 8px;
+$grid-gutter-width: 8px;

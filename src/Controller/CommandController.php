@@ -44,7 +44,7 @@ class CommandController extends Controller
   public function restartMotion()
   {
     error_log("restartMotion()");
-    $output = shell_exec('sudo service motion restart');
-    return new Response($output);
+    $output = shell_exec('sudo /usr/local/sbin/restart-motion-service');
+    return new Response("Motion Service Restarting\n$output");
   }
 }

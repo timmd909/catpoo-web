@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="video-screen" style="background-image: url(stream.mjpeg)">
-  <header class="navbar navbar-expand-lg navbar-dark bg-semi-dark sticky-top">
+  <header class="navbar navbar-expand-sm navbar-dark bg-semi-dark sticky-top">
     <a class="navbar-brand" href="{{ path('index') }}">CATPOO</a>
 
     <button class="navbar-toggler" type="button"
@@ -15,19 +15,18 @@
       <div class="flex-grow-1"></div>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('index') }}">
-            <i class="fab fa fa-refresh"></i>
-            Refresh
+          <a class="nav-link" href="#" id="restart-motion-service" title="Restart Motion Service">
+            <i class="fab fa fa-refresh"></i> Motion
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="restart-motion-service">
-            <i class="fab fa fa-refresh"></i> Start Motion Service
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" id="fullscreen">
+          <a class="nav-link" href="#" id="go-fullscreen">
             <i class="fab fa fa-arrows-alt"></i> Fullscreen
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger reset-btn" href="#" draggable="false">
+            <i class="fab fa fa-window-close"></i> Stop Motors
           </a>
         </li>
       </ul>
@@ -71,7 +70,7 @@ function ($, _, screenfull) {
 
   var moveForwardInterval = null;
 
-  $('#fullscreen').click(function () {
+  $('#go-fullscreen').click(function () {
     screenfull.toggle();
   });
 
@@ -80,7 +79,7 @@ function ($, _, screenfull) {
     this.callback = callback;
     this.interval = null;
 
-    var startCallback = _.bind(function () {
+    this.startCallback = _.bind(function () {
       this.callback();
 
       if (this.interval) {
@@ -90,7 +89,7 @@ function ($, _, screenfull) {
       this.interval = setInterval(this.callback, MIN_TIME);
     }, this);
 
-    var stopCallback = _.bind(function () {
+    this.stopCallback = _.bind(function () {
       if (this.interval) {
         window.console.log('Clearing interval', this.interval);
         clearInterval(this.interval);
@@ -99,8 +98,13 @@ function ($, _, screenfull) {
       }
     }, this);
 
-    $('body').on('mousedown', selector, startCallback);
-    $('body').on('mouseup', stopCallback);
+    this.toggleCallback = _.throttle(_.bind(function () {
+      this.startCallback();
+    }, this), 500, {leading: false, trailing: true});
+
+    $('body').on('mousedown', selector, this.startCallback);
+    $('body').on('dblclick', selector, this.toggleCallback);
+    $('body').on('mouseup', this.stopCallback);
   };
 
   var moveForward = _.throttle(function () {

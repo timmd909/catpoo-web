@@ -17,10 +17,20 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ path('index') }}">Refresh</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="restart-motion-service">Start Motion Service</a>
+        </li>
       </ul>
     </div>
-
   </header>
+
+  <div class="robot-vision">
+    <!-- mainly used for spacing -->
+  </div>
+
+  <div class="robot-controls" id="robot-controls">
+    {% include "partial/robot-controls.html.twig" %}
+  </div>
 
 </div><!-- .video-screen -->
 {% endblock %}
@@ -33,6 +43,35 @@ require([
 ],
 function () {
   console.log('Application should now start');
+
+  $('#reset-btn').click(function () {
+    $.get("{{ path('command_reset') }}");
+  });
+
+  $('#move-left-btn').click(function () {
+    $.get("{{ path('command_translate', {'x': -100, 'y': 0}) }}");
+  });
+  $('#move-right-btn').click(function () {
+    $.get("{{ path('command_translate', {'x': 100, 'y': 0}) }}");
+  });
+  $('#move-forward-btn').click(function () {
+    $.get("{{ path('command_translate', {'x': 0, 'y': 100}) }}");
+  });
+  $('#move-backward-btn').click(function () {
+    $.get("{{ path('command_translate', {'x': 0, 'y': -100}) }}");
+  });
+
+  $('#turn-left-btn').click(function () {
+    $.get("{{ path('command_rotate', {'d': 50}) }}");
+  });
+  $('#turn-right-btn').click(function () {
+    $.get("{{ path('command_rotate', {'d': -50}) }}");
+  });
+
+  $('#restart-motion-service').click(function () {
+    $.get("{{ path('command_restart_motion') }}");
+  });
+
 });
 </script>
 {% endblock %}

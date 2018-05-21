@@ -5,6 +5,7 @@
 @import "3rd-party";
 
 @import "catpoo/video-screen";
+@import "catpoo/robot-controls";
 
 html {
   height: 100vh;
@@ -22,3 +23,5 @@ body {
 .bg-semi-dark {
   background: rgba(0, 0, 0, 0.5);
 }
+
+$grid-gutter-width: 15px;

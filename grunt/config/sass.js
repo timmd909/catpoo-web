@@ -4,6 +4,7 @@ module.exports = {
 	options: {
 		includePaths: [
 			'node_modules/bootstrap/scss',
+			'node_modules/font-awesome/scss',
 		],
 	},
 	dist: {

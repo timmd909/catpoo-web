@@ -7,6 +7,14 @@ module.exports = {
 			'public/js/bootstrap.debug.js': 'node_modules/bootstrap/dist/js/bootstrap.js',
 		}],
 	},
+	'font-awesome': {
+		files: [{
+			expand: true,
+			cwd: 'node_modules/font-awesome/fonts/',
+			src: '*',
+			dest: 'public/fonts/'
+		}],
+	},
 	'jquery': {
 		files: [{
 			'public/js/jquery.js': 'node_modules/jquery/dist/jquery.min.js',

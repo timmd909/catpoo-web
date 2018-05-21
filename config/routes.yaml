@@ -10,3 +10,15 @@ command_list:
 command_uptime:
   path: /command/uptime
   controller: App\Controller\CommandController::uptime
+
+command_translate:
+  path: /command/translate/{x}/{y}
+  controller: App\Controller\CommandController::translate
+
+command_rotate:
+  path: /command/rotate/{d}
+  controller: App\Controller\CommandController::rotate
+
+command_reset:
+  path: /command/reset
+  controller: App\Controller\CommandController::reset

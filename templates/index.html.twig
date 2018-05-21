@@ -109,11 +109,11 @@ function ($, _) {
   }, MIN_TIME, {leading: true, trailing: false});
 
   var turnLeft = _.throttle(function () {
-    $.get("{{ path('command_rotate', {'d': 50}) }}");
+    $.get("{{ path('command_rotate', {'d': -50}) }}");
   }, MIN_TIME, {leading: true, trailing: false});
 
   var turnRight = _.throttle(function () {
-    $.get("{{ path('command_rotate', {'d': -50}) }}");
+    $.get("{{ path('command_rotate', {'d': 50}) }}");
   }, MIN_TIME, {leading: true, trailing: false});
 
   var moveForwardButton = new ControlButton('.move-forward-btn', moveForward);

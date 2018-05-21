@@ -23,28 +23,28 @@ class CommandController extends Controller
   public function rotate($d)
   {
     error_log("rotate($d)");
-    exec(sprintf('catpoo_controller rotate %d', $d), $output, $result);
-    return new Response(implode("\n", $output));
+    $output = shell_exec(sprintf('catpoo_controller rotate %d', $d));
+    return new Response($output);
   }
 
   public function translate($x, $y)
   {
     error_log("translate($x, $y)");
-    exec(sprintf('catpoo_controller translate %d %d', $x, $y), $output, $result);
-    return new Response(implode("\n", $output));
+    $output = shell_exec(sprintf('catpoo_controller translate %d %d', $x, $y));
+    return new Response($output);
   }
 
   public function reset()
   {
     error_log("reset()");
-    exec('catpoo_controller reset', $output, $result);
-    return new Response(implode("\n", $output));
+    $output = shell_exec('/usr/local/bin/catpoo_controller reset');
+    return new Response($output);
   }
 
   public function restartMotion()
   {
     error_log("restartMotion()");
-    exec('sudo service motion restart', $output, $result);
-    return new Response(implode("\n", $output));
+    $output = shell_exec('sudo service motion restart');
+    return new Response($output);
   }
 }

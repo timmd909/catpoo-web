@@ -39,34 +39,89 @@
 {{ parent() }}
 <script>
 require([
+  'jquery',
+  'lodash',
   'catpoo',
 ],
-function () {
-  console.log('Application should now start');
+function ($, _) {
+  'use strict';
+
+  var MIN_TIME = 200;
+
+  window.console.log('Application should now start');
+
+  var reset = _.throttle(function () {
+    $.get("{{ path('command_reset') }}");
+  }, 500, {leading: false, trailing: true});
 
   $('body').on('click', '.reset-btn', function () {
-    $.get("{{ path('command_reset') }}");
+    reset();
   });
 
-  $('body').on('click', '.move-left-btn', function () {
-    $.get("{{ path('command_translate', {'x': -100, 'y': 0}) }}");
-  });
-  $('body').on('click', '.move-right-btn', function () {
-    $.get("{{ path('command_translate', {'x': 100, 'y': 0}) }}");
-  });
-  $('body').on('click', '.move-forward-btn', function () {
-    $.get("{{ path('command_translate', {'x': 0, 'y': 100}) }}");
-  });
-  $('body').on('click', '.move-backward-btn', function () {
-    $.get("{{ path('command_translate', {'x': 0, 'y': -100}) }}");
-  });
+  var moveForwardInterval = null;
 
-  $('body').on('click', '.turn-left-btn', function () {
+  var ControlButton = function (selector, callback) {
+    this.selector = selector;
+    this.callback = callback;
+    this.interval = null;
+
+    var startCallback = _.bind(function () {
+      this.callback();
+
+      if (this.interval) {
+        clearInterval(this.interval);
+      }
+
+      this.interval = setInterval(this.callback, MIN_TIME);
+    }, this);
+
+    var stopCallback = _.bind(function () {
+      if (this.interval) {
+        window.console.log('Clearing interval', this.interval);
+        clearInterval(this.interval);
+        reset();
+        this.interval = null;
+      }
+    }, this);
+
+    $('body').on('mousedown', selector, startCallback);
+    $('body').on('mouseup', stopCallback);
+    // $('body').on('ondragend', stopCallback);
+    // $('body').on('ondrag', stopCallback);
+    // $('body').on('ondrop', stopCallback);
+    // $('body').on('ondragstart', stopCallback);
+  };
+
+  var moveForward = _.throttle(function () {
+    $.get("{{ path('command_translate', {'x': 0, 'y': 50}) }}");
+  }, MIN_TIME, {leading: true, trailing: false});
+
+  var moveBackward = _.throttle(function () {
+    $.get("{{ path('command_translate', {'x': 0, 'y': -50}) }}");
+  }, MIN_TIME, {leading: true, trailing: false});
+
+  var moveLeft = _.throttle(function () {
+    $.get("{{ path('command_translate', {'x': -50, 'y': 0}) }}");
+  }, MIN_TIME, {leading: true, trailing: false});
+
+  var moveRight = _.throttle(function () {
+    $.get("{{ path('command_translate', {'x': 50, 'y': 0}) }}");
+  }, MIN_TIME, {leading: true, trailing: false});
+
+  var turnLeft = _.throttle(function () {
     $.get("{{ path('command_rotate', {'d': 50}) }}");
-  });
-  $('body').on('click', '.turn-right-btn', function () {
+  }, MIN_TIME, {leading: true, trailing: false});
+
+  var turnRight = _.throttle(function () {
     $.get("{{ path('command_rotate', {'d': -50}) }}");
-  });
+  }, MIN_TIME, {leading: true, trailing: false});
+
+  var moveForwardButton = new ControlButton('.move-forward-btn', moveForward);
+  var moveBackwardButton = new ControlButton('.move-backward-btn', moveBackward);
+  var moveLeftButton = new ControlButton('.move-left-btn', moveLeft);
+  var moveRightButton = new ControlButton('.move-right-btn', moveRight);
+  var turnLeftButton = new ControlButton('.turn-left-btn', turnLeft);
+  var turnRightButton = new ControlButton('.turn-right-btn', turnRight);
 
   $('body').on('click', '#restart-motion-service', function () {
     $.get("{{ path('command_restart_motion') }}");

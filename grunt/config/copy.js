@@ -21,6 +21,12 @@ module.exports = {
 			'public/js/jquery.debug.js': 'node_modules/jquery/dist/jquery.js',
 		}],
 	},
+	'lodash': {
+		files: [{
+			'public/js/lodash.js': 'node_modules/lodash/lodash.min.js',
+			'public/js/lodash.debug.js': 'node_modules/lodash/lodash.js',
+		}],
+	},
 	'popper': {
 		files: [{
 			'public/js/popper.js': 'node_modules/popper.js/dist/umd/popper.min.js',

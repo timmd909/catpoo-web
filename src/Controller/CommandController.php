@@ -9,7 +9,7 @@ class CommandController extends Controller
 {
   public function list()
   {
-    return $this->render('commands.html.twig');
+    return $this->render('partial/commands.html.twig');
   }
 
   public function uptime()

@@ -3,6 +3,10 @@ index:
   path: /
   defaults: { _controller: 'App\Controller\DefaultController::index' }
 
+info:
+  path: /info
+  defaults: { _controller: 'App\Controller\DefaultController::info' }
+
 command_list:
   path: /command
   controller: App\Controller\CommandController::list

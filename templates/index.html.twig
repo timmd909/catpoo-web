@@ -46,7 +46,7 @@ require([
 function ($, _) {
   'use strict';
 
-  var MIN_TIME = 200;
+  var MIN_TIME = 100;
 
   window.console.log('Application should now start');
 
@@ -86,10 +86,6 @@ function ($, _) {
 
     $('body').on('mousedown', selector, startCallback);
     $('body').on('mouseup', stopCallback);
-    // $('body').on('ondragend', stopCallback);
-    // $('body').on('ondrag', stopCallback);
-    // $('body').on('ondrop', stopCallback);
-    // $('body').on('ondragstart', stopCallback);
   };
 
   var moveForward = _.throttle(function () {
@@ -109,11 +105,11 @@ function ($, _) {
   }, MIN_TIME, {leading: true, trailing: false});
 
   var turnLeft = _.throttle(function () {
-    $.get("{{ path('command_rotate', {'d': -50}) }}");
+    $.get("{{ path('command_rotate', {'d': -25}) }}");
   }, MIN_TIME, {leading: true, trailing: false});
 
   var turnRight = _.throttle(function () {
-    $.get("{{ path('command_rotate', {'d': 50}) }}");
+    $.get("{{ path('command_rotate', {'d': 25}) }}");
   }, MIN_TIME, {leading: true, trailing: false});
 
   var moveForwardButton = new ControlButton('.move-forward-btn', moveForward);

@@ -10,8 +10,18 @@ module.exports = {
 			{
 				test: /\.s[ac]ss$/i,
 				use: [
-					'style-loader',
-					'css-loader',
+					{
+						loader:'style-loader',
+						options: {
+							// nothing yet
+						},
+					},
+					{
+					  loader: 'css-loader',
+						options: {
+							sourceMap: true,
+						},
+					},
 					{
 						loader: 'sass-loader',
 						options: {

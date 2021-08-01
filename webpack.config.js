@@ -2,11 +2,27 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.js',
-  // mode: 'production',
+  entry: './src/index.js',
+
+	// mode: 'production',
   mode: 'development',
+
 	module: {
+
 		rules: [
+			//
+			// HTML
+			//
+			{
+				test: /\.html$/i,
+				use: [
+				  { loader: 'html-loader' },
+				],
+			},
+
+			//
+			// SASS
+			//
 			{
 				test: /\.s[ac]ss$/i,
 				use: [
@@ -34,15 +50,19 @@ module.exports = {
 				], // use [...]
 			},
 		], // rules
-	},
+	}, // module {...}
+
 	plugins: [
 		new HtmlWebpackPlugin({
       title: 'CATPOO &mdash; Antagonize Your Pets!',
+			template: path.resolve(__dirname, 'src/index.html'),
+			filename: path.resolve(__dirname, 'dist/index.html'),
     }),
-	],
+	], // plugins [...]
+
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
 		clean: true,
-  },
+	}, // output {...}
 };

@@ -1,5 +1,8 @@
 'use strict';
 
 import _ from 'lodash';
+import "./main.scss";
 
-document.body.appendChild('<div>Page loaded</div>');
+var newElement = document.createElement('div');
+newElement.innerHTML = '<div class="container">Page loaded</div>';
+document.body.appendChild(newElement);

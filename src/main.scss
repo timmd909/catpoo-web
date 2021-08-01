@@ -20,6 +20,9 @@ html, body {
 
 .video-screen {
   background: $black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   color: $white;
 
   position: absolute;

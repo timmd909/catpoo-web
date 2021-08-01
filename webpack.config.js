@@ -25,6 +25,7 @@ module.exports = {
 			//
 			{
 				test: /\.s[ac]ss$/i,
+				exclude: /^stream.mjpeg$/,
 				use: [
 					{
 						loader:'style-loader',

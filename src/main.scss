@@ -1,0 +1,29 @@
+//
+// Set any variables necessary here
+//
+
+// Example: change danger text to be ugly
+// $danger: #f0f;
+
+//
+// Import my modified Bootstrap
+//
+@import 'timstrap';
+
+//
+// Custom styles go here
+//
+
+html, body {
+  height: 100%;
+}
+
+.video-screen {
+  background: $black;
+  color: $white;
+
+  position: absolute;
+  width: 100%; height: 100%;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+}

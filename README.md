@@ -1,2 +1,3 @@
 # catpoo-web
-CATPOO Web UI
+
+This is web server portion of my latest wooden robot.

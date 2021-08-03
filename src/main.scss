@@ -22,7 +22,8 @@ html, body {
   background: $black;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  // background-size: cover;
+  background-size: contain;
   color: $white;
 
   position: absolute;
